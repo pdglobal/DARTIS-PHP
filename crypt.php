@@ -11,7 +11,6 @@ class crypt {
         $l = 0;
         for ($i = 0; $i<= count($temp)-1; $i++) {
             $insert[$l][$n] = mb_ord($temp[$i], "UTF-8");
-            echo $insert[$l][$n].",";
             $n += 1;
             if($n > 9) {$n = 0;  $l += 1;}
         }
