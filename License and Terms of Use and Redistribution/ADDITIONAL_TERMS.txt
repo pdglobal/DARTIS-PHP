@@ -1,0 +1,23 @@
+This is in addition to the license located in this project/file and at https://pdglobal.net/?pid=EULA
+
+Open Source Distribution:
+You MAY redistribute this project and it's contents in part or in whole as long as you(or any entity over which you have control, in part or in whole, or represent.):
+
+1)Show that this project and "all data generated with it and/or within" is "Copyright 2012-CurrentYear Progressive Dynamics Global Limited Company" in any location that the content or derivations of it occur, including, but not limited to:
+
+-->1)Source Code
+-->2)Project Files
+-->3)Websites where such data/content or derivations of it are used or hosted
+-->4)Within the interface in where which this data/project is used to any extent to function, at least once, including being presented in the terminal if no interface exists.
+
+2)This project, it's data/content, or any derivations of it are NEVER used for profit by any means, directly or indirectly.
+
+3)Include the original license(also know as the "EULA", "Terms", "TOS", and "Conditions") and these additional terms in all works containing this data/content/project is included, used, or presented in.
+
+*These terms are absolute, and will be held into accordance with the license(also know as the "EULA", "Terms", "TOS", and "Conditions").
+**Violations of any of the terms as set fourth will result in legal action in accordance with the license(also know as the "EULA", "Terms", "TOS", and "Conditions").
+
+EXCEPTIONS:
+These conditions do not apply to the Jama library, or the JRE Systems libraries, please consult their original distribution terms and licenses for their terms of re-distribution.
+
+**You are also expected to follow all restrictions as set fourth by the jurisdiction in which you reside.
