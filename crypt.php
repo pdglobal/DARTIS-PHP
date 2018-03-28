@@ -21,7 +21,7 @@ class crypt {
         $result =$matrix_ob->mult($insert, $construct_ob->hologram($key[ltrim($timestamp[0], "0")]));
         $id = ltrim($timestamp[0], "0").";";
         for ($i=1; $i <= count($timestamp)-1 ; $i++) {
-            if ($timestamp[$i] == 0 || $timestamp[$i] == "0") { $timestamp[0] = 1;}
+            if ($timestamp[$i] == 0 || $timestamp[$i] == "0") { $timestamp[$i] = 1;}
             $id .= ltrim($timestamp[$i], "0").";";
             $result = $matrix_ob->mult($result, $construct_ob->hologram($key[ltrim($timestamp[$i], "0")]));
             
@@ -33,7 +33,7 @@ class crypt {
             $result =$matrix_ob->mult($insert, $construct_ob->hologram($key[ltrim($timestamp[0], "0")]));
             $id = ltrim($timestamp[0], "0").";";
             for ($i=1; $i <= count($timestamp)-1 ; $i++) {
-                if ($timestamp[$i] == 0 || $timestamp[$i] == "0") { $timestamp[0] = 1;}
+                if ($timestamp[$i] == 0 || $timestamp[$i] == "0") { $timestamp[$i] = 1;}
                 $id .= ltrim($timestamp[$i], "0").";";
                 $result = $matrix_ob->mult($result, $construct_ob->hologram($key[ltrim($timestamp[$i], "0")]));
                 
