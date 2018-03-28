@@ -6,7 +6,7 @@ include_once 'strings.php';
 include_once 'math.php';
 include_once 'crypt.php';
 
-echo "<center><hr/>";
+echo "<center><h2>DARTIS DEBUGGER AND PERFORMANCE ANALYZER</h2><hr/>";
 $start = microtime(true);
 $key_ob = new keys;
 $key = $key_ob->generate();
