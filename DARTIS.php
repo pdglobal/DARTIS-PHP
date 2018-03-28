@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once 'keys.php';
 include_once 'construct.php';
 include_once 'time.php';

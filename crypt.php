@@ -5,12 +5,13 @@ class crypt {
     public function inject($data, $key){
         $construct_ob = new construct;
         $strings = new strings;
-        $temp = str_split($data,1);
+        $temp = $strings->str_split_unicode($data,1);
         $insert = array(array());
         $n = 0; 
         $l = 0;
         for ($i = 0; $i<= count($temp)-1; $i++) {
-            $insert[$l][$n] = $strings->ordutf8($temp[$i]);
+            $insert[$l][$n] = mb_ord($temp[$i], "UTF-8");
+            echo $insert[$l][$n].",";
             $n += 1;
             if($n > 9) {$n = 0;  $l += 1;}
         }
@@ -28,7 +29,7 @@ class crypt {
         }
         $ret = $strings->array2str($result)."~".$id;
         $verify = $this->extract($ret, $key);
-        while ($verify != $data) {
+        /*while ($verify != $data) {
             $timestamp = $time_ob->getTimestamp(count($key)-2);
             $result =$matrix_ob->mult($insert, $construct_ob->hologram($key[ltrim($timestamp[0], "0")]));
             $id = ltrim($timestamp[0], "0").";";
@@ -40,7 +41,7 @@ class crypt {
             }
             $ret = $strings->array2str($result)."~".$id;
             $verify = $this->extract($ret, $key);
-        }
+        }*/
         return $ret;
     }
     public function extract($data, $key) {
@@ -63,7 +64,7 @@ class crypt {
         $chrvalue = round($line[$i]);
         if ($chrvalue > 1.1 &&  $chrvalue < 500000) {
             $chr = $chrvalue;
-            $ascii .= chr($chr);
+            $ascii .= mb_chr($chr, "UTF-8");
         }
     }
     return $ascii;
