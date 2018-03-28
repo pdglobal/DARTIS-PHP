@@ -30,7 +30,7 @@ echo trim($timehash, "-");
 echo "<hr/>";
 
 $start3 = microtime(true);
-$data = "Running DARTIS Operations test on www.pdglobal.net";
+$data = "Running DARTIS Operations test at ".(isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $crypt_ob = new crypt;
 $result = $crypt_ob->inject($data, $loaded_key);
 $total = round((microtime(true) - $start3)*1000,4);

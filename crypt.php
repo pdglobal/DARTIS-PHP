@@ -10,7 +10,7 @@ class crypt {
         $n = 0; 
         $l = 0;
         for ($i = 0; $i<= count($temp)-1; $i++) {
-            $insert[$l][$n] = ord($temp[$i]);
+            $insert[$l][$n] = $strings->ordutf8($temp[$i]);
             $n += 1;
             if($n > 9) {$n = 0;  $l += 1;}
         }
