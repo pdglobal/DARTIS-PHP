@@ -125,4 +125,10 @@ public function identity_matrix($n)
 }
 
 }
+
+class math {
+    public function random_float($min = 0, $max = 1, $includeMax = false) {
+        return $min + \mt_rand(0, (\mt_getrandmax() - ($includeMax ? 0 : 1))) / \mt_getrandmax() * ($max - $min);
+    }    
+}
 ?>
