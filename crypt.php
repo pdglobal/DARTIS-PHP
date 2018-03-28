@@ -45,6 +45,9 @@ class crypt {
     }
     public function extract($data, $key) {
     $properties = explode("~", $data);
+    if (count($properties) < 2) {
+        return "Malformated encryption string!";
+    }
     $construct_ob = new construct;
     $strings = new strings;
     $film = $construct_ob->hologram($properties[0]);
