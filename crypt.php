@@ -19,13 +19,29 @@ class crypt {
         $time_ob = new time;
         $timestamp = $time_ob->getTimestamp(count($key)-2);
         $result =$matrix_ob->mult($insert, $construct_ob->hologram($key[ltrim($timestamp[0], "0")]));
+        if ($timestamp[0] == 0 || $timestamp[0] == "0") { $timestamp[0] = 1;}
         $id = ltrim($timestamp[0], "0").";";
         for ($i=1; $i <= count($timestamp)-1 ; $i++) {
             $id .= ltrim($timestamp[$i], "0").";";
             $result = $matrix_ob->mult($result, $construct_ob->hologram($key[ltrim($timestamp[$i], "0")]));
             
         }
-        return $strings->array2str($result)."~".$id;
+        $ret = $strings->array2str($result)."~".$id;
+        $verify = $this->extract($ret, $key);
+        while ($verify != $data) {
+            $timestamp = $time_ob->getTimestamp(count($key)-2);
+            $result =$matrix_ob->mult($insert, $construct_ob->hologram($key[ltrim($timestamp[0], "0")]));
+            if ($timestamp[0] == 0 || $timestamp[0] == "0") { $timestamp[0] = 1;}
+            $id = ltrim($timestamp[0], "0").";";
+            for ($i=1; $i <= count($timestamp)-1 ; $i++) {
+                $id .= ltrim($timestamp[$i], "0").";";
+                $result = $matrix_ob->mult($result, $construct_ob->hologram($key[ltrim($timestamp[$i], "0")]));
+                
+            }
+            $ret = $strings->array2str($result)."~".$id;
+            $verify = $this->extract($ret, $key);
+        }
+        return $ret;
     }
     public function extract($data, $key) {
     $properties = explode("~", $data);
@@ -35,7 +51,6 @@ class crypt {
     $indexList = explode(";", $properties[1]);
     $matrix_ob = new matrixMath;
     for ($i=1;$i<=count($indexList)-1;$i++) {
-        echo count($indexList)-1-$i."[".$indexList[(count($indexList)-1-$i)]."]->";
         $film = $matrix_ob->mult($film, $matrix_ob->invert($construct_ob->hologram($key[$indexList[(count($indexList)-1-$i)]])));
     }
     $flat = $strings->array2str($film);
