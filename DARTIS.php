@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 include_once 'keys.php';
 include_once 'construct.php';
 include_once 'time.php';
