@@ -31,7 +31,7 @@ class crypt {
             
         }
         $ret = $strings->array2str($result)."~".$id;
-        $verify = $this->extract($ret, $key);
+        $verify = $this->extract($ret, $key, $binary);
         while ($verify != $data) {
             $timestamp = $time_ob->getTimestamp(count($key)-2);
             $result =$matrix_ob->mult($insert, $construct_ob->hologram($key[ltrim($timestamp[0], "0")]));
@@ -43,7 +43,7 @@ class crypt {
                 
             }
             $ret = $strings->array2str($result)."~".$id;
-            $verify = $this->extract($ret, $key);
+            $verify = $this->extract($ret, $key, $binary);
         }
         return $ret;
     }
