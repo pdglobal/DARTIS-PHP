@@ -47,7 +47,7 @@ class crypt {
         }
         return $ret;
     }
-    public function extract($data, $key) {
+    public function extract($data, $key, $binary) {
     $properties = explode("~", $data);
     if (count($properties) < 2) {
         return "Malformated encryption string!";
@@ -62,15 +62,19 @@ class crypt {
     }
     $flat = $strings->array2str($film);
     $line = explode(",", str_replace(";", ",", $flat));
-    $ascii = "";
+    $ret = "";
     for($i = 0;$i<=count($line)-1;$i++) {
         $chrvalue = round($line[$i]);
+        if ($binary = 0) {
         if ($chrvalue > 1.1 &&  $chrvalue < 500000) {
             $chr = $chrvalue;
-            $ascii .= mb_chr($chr, "UTF-8");
+            $ret .= mb_chr($chr, "UTF-8");                
+            }
+        } else {
+            $ret .= $chr;
         }
     }
-    return $ascii;
+    return $ret;
     }
 }
 ?>
