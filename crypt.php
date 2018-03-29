@@ -2,7 +2,7 @@
 include_once 'construct.php';
 include_once 'strings.php';
 class crypt {
-    public function inject($data, $key){
+    public function inject($data, $key, $binary){
         $construct_ob = new construct;
         $strings = new strings;
         $temp = $strings->str_split_unicode($data,1);
@@ -10,7 +10,11 @@ class crypt {
         $n = 0; 
         $l = 0;
         for ($i = 0; $i<= count($temp)-1; $i++) {
+            if ($binary == 0) {
             $insert[$l][$n] = mb_ord($temp[$i], "UTF-8");
+            } else {
+            $insert[$l][$n] = $temp[$i];
+            }
             $n += 1;
             if($n > 9) {$n = 0;  $l += 1;}
         }
