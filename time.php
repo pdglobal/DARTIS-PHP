@@ -2,19 +2,13 @@
 
 class time
 {
-
+    
     public function getTimestamp($length)
     {
-        $now1 = date("Z");
-        $now2 = date("Y");
-        $now3 = date("i");
-        $now4 = date("H");
-        $now5 = date("s");
         $micro = str_replace(" ", "", number_format((microtime() + 11644477200) * 10000000, 0, '.', ''));
-        $datetime = (($now1 + $now2) . ($now3 + $now4 + $now5) . $micro) * 100.0;
-        
-        return str_split(substr(trim(str_replace(".", "", str_replace(",", "", number_format(round(abs($datetime / rand(1.000000,9.999999))), 23))), "00"),1,23), strlen($length));
-        // no support for dealing with numbers aproaching infinity in php
+        $min = 0;
+        $max = 99999999;
+        return str_split(str_replace(",", "", str_replace(".", "", number_format($micro+(mt_rand ($min*10, $max*10) / 10)))), strlen($length));
     }
 }
 ?>
