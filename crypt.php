@@ -5,8 +5,18 @@ include_once 'strings.php';
 class crypt
 {
 
-    public function inject($data, $key, $binary)
+    /*
+     * NOTICE: As a result of the way computers measure time, it is nessecary to pass a value to the crypt function in order to generate a unqinue
+     * timestamp for every possible measurment. It is reccomended that if you operate this function in a loop, that you define a value somewhere
+     * on the computer/server and increment that value each time you encrypt data, then pass the value to the crypt function as the 3rd value.
+     * You can reset the number back to 0 every 250 ms so that it doesn't grow unreasonably large, or you can just reset it after it has reached
+     * a value of at least 1000
+     */
+    public function inject($data, $key, $binary = 0, $count = 0)
     {
+        if ($count == 0) {
+            $count = (mt_rand(1111111 * 10, 9999999 * 10) / 10);
+        }
         $construct_ob = new construct();
         $strings = new strings();
         $temp = $strings->str_split_unicode($data, 1);
@@ -33,7 +43,7 @@ class crypt
         }
         $matrix_ob = new matrixMath();
         $time_ob = new time();
-        $timestamp = $time_ob->getTimestamp(count($key) - 2);
+        $timestamp = $time_ob->getTimestamp(count($key) - 2, $count);
         $result = $matrix_ob->mult($insert, $construct_ob->hologram($key[ltrim($timestamp[0], "0")]));
         $id = ltrim($timestamp[0], "0") . ";";
         for ($i = 1; $i <= count($timestamp) - 1; $i ++) {
@@ -46,7 +56,8 @@ class crypt
         $ret = $strings->array2str($result) . "~" . $id;
         $verify = $this->extract($ret, $key, $binary);
         while ($verify != $data) {
-            $timestamp = $time_ob->getTimestamp(count($key) - 2);
+            $count += 1;
+            $timestamp = $time_ob->getTimestamp(count($key) - 2, $count);
             $result = $matrix_ob->mult($insert, $construct_ob->hologram($key[ltrim($timestamp[0], "0")]));
             $id = ltrim($timestamp[0], "0") . ";";
             for ($i = 1; $i <= count($timestamp) - 1; $i ++) {
@@ -62,7 +73,7 @@ class crypt
         return $ret;
     }
 
-    public function extract($data, $key, $binary)
+    public function extract($data, $key, $binary = 0)
     {
         $properties = explode("~", $data);
         if (count($properties) < 2) {
