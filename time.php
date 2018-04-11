@@ -9,7 +9,7 @@ class time
         if (substr($micro, 0, 1) == "-") {
             $micro = strrev(abs($micro)); // I know this isn't anywhere near an optimal solution, looking for any suggestions on a better way to handle this
         }
-        return str_split(str_replace(",", "", str_replace(".", "", number_format($micro + $count))).memory_get_usage(TRUE), strlen($length));
+        return str_split(str_replace(",", "", str_replace(".", "", number_format($micro + $count))) . memory_get_usage(TRUE), strlen($length));
     }
 }
 ?>
