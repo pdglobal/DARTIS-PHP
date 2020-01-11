@@ -1,10 +1,8 @@
 {
-   "name": "pdglobal/dartis",
-   "version": "stable",   
+   "name": "pdglobal/dartis",  
    "description": "Dimensions And Relative Time Information System",
     "type": "library",
     "license": "proprietary",
-    "minimum-stability": "stable",
 	"authors": [
         {
             "name": "Zachary Litzinger",
