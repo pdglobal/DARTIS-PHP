@@ -12,7 +12,9 @@
 	"require" : {
 		"php" : ">=5.0.0"
 	},
-    "autoload": {
-        "classmap": ["includes/"]
+	"autoload" : {
+		"files" : [
+			"src/includes/keys.php"
+		]
 	}
 }
