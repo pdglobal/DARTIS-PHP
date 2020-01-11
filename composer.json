@@ -4,8 +4,16 @@
     "type": "library",
     "license": "See \"License and Terms of Use and Redistribution\" Folder",
     "minimum-stability": "stable",
-	  "autoload": {
-        "psr-4": {"pdglobal\\DARTIS-PHP\\": "src/"}
+	  {
+    "autoload": {
+        "files": ["src/inc.php"]
     },
+	"authors": [
+        {
+            "name": "Zachary Litzinger",
+            "email": "zach@pdglobal.app",
+            "role": "Developer"
+        }
+    ],
     "require": {}
 }
