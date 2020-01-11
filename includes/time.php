@@ -1,5 +1,4 @@
 <?php
-include_once '../namespace.php';
 class time
 {
     public function getTimestamp($length, $count)

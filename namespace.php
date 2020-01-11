@@ -1,0 +1,1 @@
+<?PHP namespace pdglobal\dartis; ?>

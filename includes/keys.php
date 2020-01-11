@@ -1,5 +1,4 @@
 <?php
-include_once '../namespace.php';
 include_once 'math.php';
 
 class keys

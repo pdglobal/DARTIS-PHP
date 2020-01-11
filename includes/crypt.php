@@ -1,6 +1,4 @@
 <?php
-include_once '../namespace.php';
-
 include_once 'construct.php';
 include_once 'strings.php';
 

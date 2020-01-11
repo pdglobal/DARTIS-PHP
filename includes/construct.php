@@ -1,6 +1,4 @@
 <?php
-include_once '../namespace.php';
-
 class construct
 {
 
