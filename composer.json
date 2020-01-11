@@ -12,14 +12,7 @@
 	"require" : {
 		"php" : ">=5.0.0"
 	},
-	"autoload" : {
-		"files" : [
-			"src/includes/keys.php",
-			"src/includes/crypt.php",
-			"src/includes/math.php",
-			"src/includes/string.php",
-			"src/includes/time.php",
-			"src/includes/construct.php"
-		]
-	}
+	"autoload": {
+        "psr-4": { "pdglobal\\dartis\\": "src/includes/" }
+    },
 }
