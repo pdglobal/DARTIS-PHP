@@ -4,7 +4,6 @@
     "type": "library",
     "license": "See \"License and Terms of Use and Redistribution\" Folder",
     "minimum-stability": "stable",
-	  {
     "autoload": {
         "files": ["src/inc.php"]
     },
