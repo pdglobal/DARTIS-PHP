@@ -1,4 +1,5 @@
 <?php
+namespace pdglobal\dartis;
 class time
 {
     public function getTimestamp($length, $count)

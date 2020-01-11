@@ -1,4 +1,6 @@
 <?php
+namespace pdglobal\dartis;
+
 include_once 'construct.php';
 include_once 'strings.php';
 
