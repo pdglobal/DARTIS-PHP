@@ -1,6 +1,6 @@
 {
    "name": "pdglobal/dartis",
-   "version": "0.1.0.0",   
+   "version": "stable",   
    "description": "Dimensions And Relative Time Information System",
     "type": "library",
     "license": "proprietary",
