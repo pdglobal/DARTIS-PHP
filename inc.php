@@ -10,7 +10,7 @@ include_once 'includes/crypt.php';
 class inc {
  
 	function init() {
-		return 1;
+		return 1001;
 	}
  
 }
