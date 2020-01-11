@@ -2,7 +2,7 @@
     "name": "pdglobal/dartis",
     "description": "Dimensions And Relative Time Information System",
     "type": "library",
-    "license": "See \"License and Terms of Use and Redistribution\" Folder",
+    "license": "proprietary",
     "minimum-stability": "stable",
     "autoload": {
         "files": ["src/inc.php"]
