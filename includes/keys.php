@@ -1,4 +1,5 @@
 <?php
+namespace pdglobal\dartis;
 include_once 'math.php';
 
 class keys

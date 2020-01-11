@@ -1,19 +1,18 @@
 {
-   "name": "pdglobal/dartis",  
-   "description": "Dimensions And Relative Time Information System",
-    "type": "library",
-    "license": "proprietary",
-	"authors": [
-        {
-            "name": "Zachary Litzinger",
-            "email": "zach@pdglobal.app",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "php": ">=5.0.0"
-    },
+	"name" : "pdglobal/dartis",
+	"description" : "Dimensions And Relative Time Information System",
+	"type" : "library",
+	"license" : "proprietary",
+	"authors" : [{
+			"name" : "Zachary Litzinger",
+			"email" : "zach@pdglobal.app",
+			"role" : "Developer"
+		}
+	],
+	"require" : {
+		"php" : ">=5.0.0"
+	},
     "autoload": {
-        "psr-4": {"pdglobal\\dartis\\": "src/includes/"}
-    }
+        "classmap": ["includes/"]
+	}
 }
