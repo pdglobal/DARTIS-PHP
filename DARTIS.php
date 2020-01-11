@@ -12,7 +12,7 @@ $start = microtime(true);
 $key_ob = new keys();
 $key = $key_ob->generate();
 $total = round((microtime(true) - $start) * 1000, 4);
-echo "Generated key in " . $total . " milliseconds" . "<br/>Key MD5: " . MD5($key) . "<br/>Key Size: " . (strlen($key) / 1000 / 1000) . " MB<hr/>";
+echo "Generated key in " . $total . " milliseconds" . "<br/>Key MD5: " . MD5($key) . "<br/>Key Size: " . (strlen($key) / 1000 / 1000)/2 . " MB<hr/>";
 
 $start2 = microtime(true);
 $construct_ob = new construct();
@@ -38,15 +38,41 @@ $crypt_ob = new crypt();
  * on the computer/server and increment that value each time you encrypt data, then pass the value to the crypt function as the 3rd value.
  * You can reset the number back to 0 every 250 ms so that it doesn't grow unreasonably large, or you can just reset it after it has reached
  * a value of at least 1000 */
-$result = $crypt_ob->inject($data, $loaded_key);
+$result = $crypt_ob->inject(unpack('C*', $data), $loaded_key);
 $total = round((microtime(true) - $start3) * 1000, 4);
 Echo "Encrypting: '" . $data . "' (" . strlen($data) . " Bytes)<br/>Constructed Encrypted Hologram in " . $total . " miliseconds.<br/><br/>Result:<br/>";
 echo '<textarea cols="40" rows="10" wrap="hard">' . $result . '</textarea> <style> textarea { width: 100%; } </style><hr/>';
 $start4 = microtime(true);
 $deresult = $crypt_ob->extract($result, $loaded_key);
 $total = round((microtime(true) - $start4) * 1000, 4);
+$retstr = "";
+for ($n = 1; $n <= count($deresult); $n++) {
+    $retstr .= pack("C*", $deresult[$n]);
+}
+$deresult = $retstr;
 Echo "Decrypting data. (" . strlen($result) . " Bytes)<br/>Extracted data in " . $total . " miliseconds.<br/><br/>Result:<br/>";
 echo '<textarea cols="40" rows="10" wrap="hard">' . $deresult . '</textarea> <style> textarea { width: 100%; } </style>';
 
 echo "<hr/></center>";
+function _getip()
+{
+    $client  = @$_SERVER['HTTP_CLIENT_IP'];
+    $forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
+    $remote  = $_SERVER['REMOTE_ADDR'];
+
+    if(filter_var($client, FILTER_VALIDATE_IP))
+    {
+        $ip = $client;
+    }
+    elseif(filter_var($forward, FILTER_VALIDATE_IP))
+    {
+        $ip = $forward;
+    }
+    else
+    {
+        $ip = $remote;
+    }
+
+    return $ip;
+}
 ?>
