@@ -1,4 +1,5 @@
 <?PHP
+include_once '../namespace.php';
 include_once 'includes/keys.php';
 include_once 'includes/construct.php';
 include_once 'includes/time.php';

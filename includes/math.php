@@ -1,5 +1,5 @@
 <?php
-namespace pdglobal\dartis;
+include_once '../namespace.php';
 class matrixMath
 {
 
