@@ -1,0 +1,11 @@
+{
+    "name": "pdglobal/dartis",
+    "description": "Dimensions And Relative Time Information System",
+    "type": "library",
+    "license": "See \"License and Terms of Use and Redistribution\" Folder",
+    "minimum-stability": "stable",
+	  "autoload": {
+        "psr-4": {"pdglobal\\DARTIS-PHP\\": "src/"}
+    },
+    "require": {}
+}
