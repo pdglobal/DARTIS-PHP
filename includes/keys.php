@@ -12,12 +12,15 @@ class keys
         for ($i = 0; $i <= $size; $i ++) {
             for ($a = 0; $a <= 9; $a ++) {
                 for ($j = 0; $j <= 8; $j ++) {
-                    $sb .= ($math->random_float() * 100) . ",";
+                    $mf = $math->random_float();
+                    $sb .= ($mf * pow(10, strlen((string)$mf))) . ",";
                 }
                 if ($a == 8) {
-                    $sb .= ($math->random_float() * 100) . "/";
+                    $mf = $math->random_float();
+                    $sb .= ($mf *  pow(10, strlen((string)$mf))) . "/";
                 } else {
-                    $sb .= ($math->random_float() * 100) . ";";
+                    $mf = $math->random_float();
+                    $sb .= ($mf *  pow(10, strlen((string)$mf))) . ";";
                 }
             }
         }
